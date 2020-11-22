@@ -199,9 +199,7 @@ export default {
       this.$message.success(res.meta.msg)
       console.log(res);
     },
-    addDialogClose(name) {
-      this.$refs[name].resetFields();
-    },
+    addDialogClose(name) { this.$refs[name].resetFields() },
     addUser(name) {
       this.$refs[name].validate(async (valid) => {//校验
         if (!valid) return false;
@@ -236,8 +234,8 @@ export default {
         type: 'warning'
       }).then(async () => {
         let { data: res } = await this.$http.delete(`/users/${id}`);
-       if (res.meta.status != 200) return this.$message.error(res.meta.msg);
-       this.getUserList();
+        if (res.meta.status != 200) return this.$message.error(res.meta.msg);
+        this.getUserList();
         this.$message({
           type: 'success',
           message: '删除成功!'
